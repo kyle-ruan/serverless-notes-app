@@ -5,13 +5,7 @@ export const main = async (event, context, callback) => {
   const userId = event.requestContext.identity.cognitoIdentityId;
   const noteId = event.pathParameters.id;
 
-  const params = {
-    TableName: 'notes',
-    Key: {
-      userId,
-      noteId
-    }
-  };
+  const params = { TableName: process.env.tableName, Key: { userId, noteId } };
 
   try {
     const result = await dynamoDbLib.call('get', params);

@@ -3,7 +3,7 @@ import { success, failure } from '../libs/response-lib';
 
 export const main = async (event, context, callback) => {
   const params = {
-    TableName: 'notes',
+    TableName: process.env.tableName,
     KeyConditionExpression: 'userId = :userId',
     ExpressionAttributeValues: {
       ':userId': event.requestContext.identity.cognitoIdentityId
