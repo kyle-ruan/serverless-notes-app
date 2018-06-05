@@ -17,10 +17,10 @@ Resources:
         Ref: CognitoIdentityPool
       Roles:
         authenticated:
-          Fn::GetAtt: [ CognitoAuthRole, Arn ]
+          Fn::GetAtt: [CognitoAuthRole, Arn]
     
   CognitoAuthRole:
-    Type: AWS::IAM:Role
+    Type: AWS::IAM::Role
     Properties:
       Path: /
       AssumeRolePolicyDocument:
@@ -67,7 +67,7 @@ Resources:
                   Action:
                     - 's3:*'
                   Resource:
-                    - Fn::Join
+                    - Fn::Join:
                       - ''
                       -
                         - Fn::GetAtt: [AttachmentsBucket, Arn]

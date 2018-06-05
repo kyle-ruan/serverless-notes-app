@@ -14,7 +14,7 @@ Resources:
               - PUT
               - POST
               - DELETE
-              HEAD
+              - HEAD
             MaxAge: 3000
 
 Outputs:
