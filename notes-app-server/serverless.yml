@@ -31,7 +31,7 @@ provider:
   environment:
     tableName:
       Ref: NotesTable
-      
+
   iamRoleStatements:
     - Effect: Allow
       Action:
@@ -94,3 +94,5 @@ functions:
 resources:
   # DynamoDB
   - ${file(resources/dynamodb-table.yml)}
+  # S3
+  - ${file(resources/s3-bucket.yml)}
