@@ -12,7 +12,7 @@ custom:
   tableThroughputs:
     prod: 5
     default: 1
-  tableThroughput: ${self.custom.tableThroughputs.${self:custom.stage}, self:custom.tableThroughputs.default}
+  tableThroughput: ${self:custom.tableThroughputs.${self:custom.stage}, self:custom.tableThroughputs.default}
   webpack:
     webpackConfig: ./webpack.config.js
     includeModules: true
@@ -88,6 +88,15 @@ functions:
       - http:
           path: notes/{id}
           method: delete
+          cors: true
+          authorizer: aws_iam
+
+  billing:
+    handler: billing/index.main
+    events:
+      - http:
+          path: billing
+          method: post
           cors: true
           authorizer: aws_iam
 

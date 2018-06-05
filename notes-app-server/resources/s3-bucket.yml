@@ -10,7 +10,7 @@ Resources:
             AllowedHeaders:
               - '*'
             AllowedMethods:
-              - Get
+              - GET
               - PUT
               - POST
               - DELETE
